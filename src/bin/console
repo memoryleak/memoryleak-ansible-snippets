@@ -1,0 +1,14 @@
+#!/usr/bin/env php
+<?php
+require __DIR__. '/..' . '/vendor/autoload.php';
+
+use AnsibleSnippetGenerator\Commands\ExtraCommand;
+use AnsibleSnippetGenerator\Commands\SnippetCommand;
+use Symfony\Component\Console\Application;
+
+$base_dir = realpath(__DIR__. '/..');
+$application = new Application('sublime-snippet-generator', '1.0.0');
+$application->add(new SnippetCommand($base_dir));
+$application->add(new ExtraCommand($base_dir));
+
+$application->run();

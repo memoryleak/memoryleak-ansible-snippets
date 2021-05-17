@@ -1,0 +1,17 @@
+{
+"{{ module.module }}": {
+  "scope": "yaml,ansible",
+  "prefix": ["{{ module.module }}"],
+  "body": [
+"- name: {{ ansible_option(module.description, option_data.type, loop.index + 1) }}",
+"  {{ module.module }}:",
+{% for option_name, option_data in module.options %}
+"    {{ option_name }}: {{ ansible_option(option_data.description, option_data.type, loop.index + 1) }}",
+{% endfor %}
+"  tags:",
+"    - {{ module.module }}",
+"    - ${{ '{' }}{{  module.options | length + 2 }}:custom tags{{ '}' }}"
+  ],
+  "description": {{ module.description[0] | json_encode }}
+  }
+}

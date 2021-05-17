@@ -1,0 +1,13 @@
+{% set lines = (extra.content | split("\n"))  %}
+{
+"{{ extra.name }}": {
+  "scope": "yaml,ansible",
+  "prefix": ["{{ extra.name }}"],
+  "body": [
+{% for line in lines %}
+  "{{ line }}"{% if loop.last == false %},{% endif %}
+
+  {% endfor %}],
+  "description": "{{ extra.description }}"
+  }
+}

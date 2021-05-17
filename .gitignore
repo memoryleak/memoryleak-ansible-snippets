@@ -1,0 +1,6 @@
+.idea
+.vscode
+artifacts
+build
+src/vendor
+composer.lock

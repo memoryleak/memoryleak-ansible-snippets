@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[{% include 'snippet.yml.twig' %}]]></content>
+  <tabTrigger>{{ module.module }}</tabTrigger>
+  <scope>source.yaml,source.ansible</scope>
+  <description>{{ module.description[0] | split('.') | first | escape('html')}}</description>
+</snippet>

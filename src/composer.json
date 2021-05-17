@@ -1,0 +1,23 @@
+{
+    "name": "memoryleak/ansible-snippet-generator",
+    "description": "Scripts to generate snippets of Ansible modules for Sublime Text and Visual Studio Code.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Haydar Ciftci",
+            "email": "haydar.ciftci@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "symfony/console": "^5.2",
+        "twig/twig": "^3.3"
+
+    },
+    "autoload": {
+        "psr-4": {
+            "AnsibleSnippetGenerator\\": "lib/"
+        }
+    }
+}
