@@ -4,5 +4,5 @@
     {{ option_name }}: {{ ansible_option(option_data.description, option_data.type, loop.index + 1) }}
 {% endfor %}
   tags:
-     - {{ module.module }}
-     - ${{ '{' }}{{  module.options | length + 2 }}:custom tags{{ '}' }}
+    - {{ module.module }}
+    - ${{ '{' }}{{  module.options | length + 2 }}:custom tags{{ '}' }}
