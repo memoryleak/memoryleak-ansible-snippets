@@ -78,3 +78,4 @@ install:
 
 all: prepare build
 build: sublime code sublime-extra code-extra code-build sublime-build
+sublime-text: prepare build sublime sublime-extra sublime-build
