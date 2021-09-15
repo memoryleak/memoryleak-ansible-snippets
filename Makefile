@@ -25,7 +25,7 @@ CONSOLE_SNIPPET_COMMAND=php -d xdebug.mode=off src/bin/console generate:snippet
 CONSOLE_EXTRA_COMMAND=php -d xdebug.mode=off src/bin/console generate:extra
 
 prepare:
-	composer2 install -d src/
+	composer install -d src/
 	mkdir -p $(MODULE_SNIPPETS_DIR)
 	ansible-doc -l | cut -d " " -f1 | tr ' ' '\n' | sort | uniq > $(BUILDDIR)/modules.txt
 	$(PARALLEL_COMMAND) 'PYTHONWARNINGS="ignore" ansible-doc -j "%" 1> $(MODULE_SNIPPETS_DIR)/%.json'
@@ -73,7 +73,7 @@ clean:
 	rm -rf $(BUILDDIR)/module-snippets-json $(BUILDDIR)/module-snippets-code $(BUILDDIR)/module-snippets-sublime $(BUILDDIR)/module-snippets-yaml src/vendor
 
 install:
-	cp $(ARTIFACTS_DIR)/AnsibleSnippets.sublime-package ~/.config/sublime-text-3/Installed\ Packages/AnsibleSnippets.sublime-package
+	cp $(ARTIFACTS_DIR)/AnsibleSnippets.sublime-package ~/.config/sublime-text/Installed\ Packages/AnsibleSnippets.sublime-package
 	cp $(ARTIFACTS_DIR)/ansible.code-snippets ~/.config/Code/User/snippets/ansible.code-snippets
 
 all: prepare build
